@@ -39,7 +39,7 @@ def catalogue_products_page():
     table_name = 'catalogue_products'
     date_from = request.form['date_from']
     date_to = request.form['date_to']
-    return get_tables_from(str(table_name), date_from, date_to)
+    return get_tables_from(table_name, date_from, date_to)
 
 
 @app.route('/drugstore_positions')
@@ -47,7 +47,7 @@ def drugstore_positions_page():
     table_name = 'drugstore_positions'
     date_from = request.form['date_from']
     date_to = request.form['date_to']
-    return get_tables_from(str(table_name), date_from, date_to)
+    return get_tables_from(table_name, date_from, date_to)
 
 
 if __name__ == "__main__":
