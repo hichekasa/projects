@@ -1,0 +1,4 @@
+database_name: "asna_connect_dev"
+database_user: "deploy"
+database_password: "deploy"
+database_host: "192.168.1.50"
