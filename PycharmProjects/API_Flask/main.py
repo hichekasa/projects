@@ -3,7 +3,6 @@ import psycopg2
 import pandas as pd
 from flask import Flask, request, jsonify, redirect, url_for
 app = Flask(__name__)
-
 all_posts_id = [0, 1, 2, 3, 4, 5, 7, 8, 9, 10]
 
 
