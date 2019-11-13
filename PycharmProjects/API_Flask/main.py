@@ -3,7 +3,6 @@ import psycopg2
 import pandas as pd
 from flask import Flask, request
 app = Flask(__name__)
-all_posts_id = [0, 1, 2, 3, 4, 5, 7, 8, 9, 10]
 
 with open('confs/config.yml', 'r') as yaml_file:
     config = yaml.load(yaml_file, Loader=yaml.FullLoader)
