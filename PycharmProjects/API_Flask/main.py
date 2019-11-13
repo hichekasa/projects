@@ -4,7 +4,7 @@ import pandas as pd
 from flask import Flask, request
 app = Flask(__name__)
 
-with open('confs/config.yml', 'r') as yaml_file:
+with open('configs/config.yml', 'r') as yaml_file:
     config = yaml.load(yaml_file, Loader=yaml.FullLoader)
 
 
@@ -31,14 +31,14 @@ def index_page():
     return 'Index page'
 
 
-@app.route('/catalogue_products', methods=['GET', 'POST'])
+@app.route('/catalogue_products')
 def catalogue_products_page():
     date_from = request.form['date_from']
     date_to = request.form['date_to']
     return get_tables_from(date_from, date_to).to_html()
 
 
-@app.route('/drugstore_positions', methods=['GET', 'POST'])
+@app.route('/drugstore_positions')
 def drugstore_positions_page():
     date_from = request.form['date_from']
     date_to = request.form['date_to']
