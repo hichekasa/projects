@@ -67,10 +67,10 @@ def login_page():
 
         return response
 
-    else:
+    elif request.method == 'GET':
         data = dict(id='none', name='none', email='none')
         response = jsonify(data)
-        response.status_done = 406
+        response.status_code = 406
 
         return response
 
