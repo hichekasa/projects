@@ -18,9 +18,9 @@ def get_tables_from(table_name, date_from, date_to):
     cursor.execute(sql_query +
                    " WHERE updated_at BETWEEN %(date_from)s AND %(date_to)s "
                    "ORDER BY updated_at DESC", {'date_from': date_from, 'date_to': date_to})
-    drugstore_positions = cursor.fetchall()
+    df = cursor.fetchall()
 
-    df = pd.DataFrame(drugstore_positions)
+    df = pd.DataFrame(df)
 
     connect.close()
     return df.to_html()
