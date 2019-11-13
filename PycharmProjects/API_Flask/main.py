@@ -20,7 +20,13 @@ def get_tables_from(table_name, date_from, date_to):
                    "ORDER BY updated_at DESC", {'date_from': date_from, 'date_to': date_to})
     df = cursor.fetchall()
 
-    df = pd.DataFrame(df)
+    sql_query_columns = "SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{}';" \
+        .format(table_name)
+    cursor.execute(sql_query_columns)
+    columns = cursor.fetchall()
+
+    columns = [item for t in columns for item in t]
+    df = pd.DataFrame(df, columns=columns)
 
     connect.close()
     return df.to_html()
