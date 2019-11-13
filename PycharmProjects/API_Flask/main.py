@@ -23,7 +23,7 @@ def get_tables_from(date_from, date_to):
     df = pd.DataFrame(drugstore_positions)
 
     connect.close()
-    return df
+    return df.to_html()
 
 
 @app.route('/')
@@ -35,14 +35,14 @@ def index_page():
 def catalogue_products_page():
     date_from = request.form['date_from']
     date_to = request.form['date_to']
-    return get_tables_from(date_from, date_to).to_html()
+    return get_tables_from(date_from, date_to)
 
 
 @app.route('/drugstore_positions')
 def drugstore_positions_page():
     date_from = request.form['date_from']
     date_to = request.form['date_to']
-    return get_tables_from(date_from, date_to).to_html()
+    return get_tables_from(date_from, date_to)
 
 
 if __name__ == "__main__":
